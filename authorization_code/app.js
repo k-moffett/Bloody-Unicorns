@@ -1,4 +1,3 @@
-
 /**
  * This is an example of a basic node.js script that performs
  * the Authorization Code oAuth2 flow to authenticate against
@@ -13,9 +12,9 @@ var request = require('request'); // "Request" library
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
-var client_id = '2a41b9449765414bbb82db0ba41af635'; // Your client id
-var client_secret = '9e80598c20b24c9eac7f1d6db9fe0ae5'; // Your secret
-var redirect_uri = 'https://localhost:8888/callback/'; // Your redirect uri
+var client_id = 'fa3f02378e7049139d059733f8e59a19'; // Your client id
+var client_secret = '163da59e8eb44cfeaabaeb984e5f9a43'; // Your secret
+var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
@@ -144,5 +143,3 @@ app.get('/refresh_token', function(req, res) {
 
 console.log('Listening on 8888');
 app.listen(8888);
-
-
