@@ -1,7 +1,7 @@
 $( document ).ready(function () {
 
 
-let apiURL = "https://accounts.spotify.com/authorize?client_id=fa3f02378e7049139d059733f8e59a19&response_type=code&redirect_uri=http://localhost:8888/callback"
+let apiURL = "https://accounts.spotify.com/authorize?client_id=fa3f02378e7049139d059733f8e59a19&response_type=code&redirect_uri=https://moffkr91.github.io/Bloody-Unicorns/callback"
 
 $("#submit").on("click", function(){
 event.preventDefault()
