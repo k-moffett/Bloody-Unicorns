@@ -14,7 +14,7 @@ var cookieParser = require('cookie-parser');
 
 var client_id = 'fa3f02378e7049139d059733f8e59a19'; // Your client id
 var client_secret = '163da59e8eb44cfeaabaeb984e5f9a43'; // Your secret
-var redirect_uri = 'http://localhost:8888'; // Your redirect uri
+var redirect_uri = 'https://moffkr91.github.io/Bloody-Unicorns/'; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
