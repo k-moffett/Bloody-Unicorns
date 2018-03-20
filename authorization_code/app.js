@@ -14,7 +14,7 @@ var cookieParser = require('cookie-parser');
 
 var client_id = 'fa3f02378e7049139d059733f8e59a19'; // Your client id
 var client_secret = '163da59e8eb44cfeaabaeb984e5f9a43'; // Your secret
-var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
+var redirect_uri = 'http://localhost:8888'; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
@@ -83,7 +83,7 @@ app.get('/callback', function(req, res) {
       },
       json: true
     };
-///////////////////////////////////////////
+
     request.post(authOptions, function(error, response, body) {
       if (!error && response.statusCode === 200) {
 
@@ -100,7 +100,7 @@ app.get('/callback', function(req, res) {
         request.get(options, function(error, response, body) {
           console.log(body);
         });
-/////////////////////////////////////////////////
+
         // we can also pass the token to the browser to make requests from there
         res.redirect('/#' +
           querystring.stringify({
