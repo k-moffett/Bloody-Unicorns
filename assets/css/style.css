@@ -6,11 +6,11 @@ body {
 }
 
 #main-container {
-    margin-top: 2%;
+    margin-top: 1%;
 }
 
 #search-form {
-   float: left;
+    float: left;
 }
 
 .container {
@@ -19,7 +19,7 @@ body {
 }
 
 #main-row {
-    height: 500px;
+    height: 660px;
 }
 
 #chat {
@@ -29,14 +29,15 @@ body {
     background-color: #d0dff9;
     position: absolute;
     bottom: 20px;
+    border-radius: 10px;
 }
-
 
 #one {
     background-color: #cc8400;
+    border-radius: 15px;
 }
 
 #two {
     background-color: #664200;
+    border-radius: 15px;
 }
-
