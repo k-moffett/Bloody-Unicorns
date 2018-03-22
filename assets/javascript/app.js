@@ -25,6 +25,7 @@ $( document ).ready(function () {
     ///Call to search
     $("#submit").on("click", function(){
         event.preventDefault()
+        $(".table_rows").remove()
         user_input = $("#search-form").val().trim()
         final_input = user_input
         console.log(final_input)
@@ -45,24 +46,21 @@ $( document ).ready(function () {
         
 
 for (i=0; i<5; i++) {
-
-        let results = search.albums;
-        let p = $('<p>').text("Album: " + results.items["0"].name);
-        let h = $('<h3>').text(final_input);
-        let showImage = $('<img>');
         let art_url = search.albums.items[i].images[2].url
-        let art = ""
-        let artist = results.items[i].artists["0"].name
-        let album_name = results.items[i].name
-        let new_row = `<tr> <td><img src="`+art_url+`"></td> <td>`+artist+`</td> <td>`+album_name+`</td> </tr>`
+        let artist = search.albums.items[i].artists["0"].name
+        let album_name = search.albums.items[i].name
+        let new_row = `<tr class="table_rows"> <td><img src="`+art_url+`"></td> <td>`+artist+`</td> <td>`+album_name+`</td> </tr>`
         $("#display-info").append(new_row)
-
-    }
-    
+        }
     }); 
 
-    })
+})
 
  
+
+
+
+
+//
  })
 
