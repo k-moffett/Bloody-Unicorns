@@ -1,0 +1,42 @@
+body {
+    height: 100%;
+    background-image: url("https://cdn.pixabay.com/photo/2018/01/05/16/27/background-3063287_1280.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+#main-container {
+    margin-top: 2%;
+}
+
+#search-form {
+   float: left;
+}
+
+.container {
+    width: 100%;
+    margin-bottom: 1%;
+}
+
+#main-row {
+    height: 500px;
+}
+
+#chat {
+    align-content: center;
+    width: 92.5%;
+    height: 150px;
+    background-color: #d0dff9;
+    position: absolute;
+    bottom: 20px;
+}
+
+
+#one {
+    background-color: #cc8400;
+}
+
+#two {
+    background-color: #664200;
+}
+
