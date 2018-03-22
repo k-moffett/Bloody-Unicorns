@@ -20,8 +20,7 @@ $( document ).ready(function () {
     function success(request_auth){
     $("#test-display").text()
     }
-    
-    
+
     ///Call to search
     $("#submit").on("click", function(){
         event.preventDefault()
@@ -40,23 +39,29 @@ $( document ).ready(function () {
         dataType: 'json',
         limit: 1,
     }).then(function(search){
-        
         console.log(search)
         console.log(search.albums)
-        
-
 for (i=0; i<5; i++) {
         let art_url = search.albums.items[i].images[2].url
         let artist = search.albums.items[i].artists["0"].name
         let album_name = search.albums.items[i].name
-        let new_row = `<tr class="table_rows"> <td><img src="`+art_url+`"></td> <td>`+artist+`</td> <td>`+album_name+`</td> </tr>`
+        let new_row = `<tr class="table_rows"> <td id="album-art"><img src="`+art_url+`"></td> <td>`+artist+`</td> <td>`+album_name+`</td> </tr>`
         $("#display-info").append(new_row)
         }
     }); 
 
 })
 
- 
+$("table").on("click", "tr", function(){
+    console.log($(this).html())
+    let artist_and_album = $(this).text()
+    console.log(artist_and_album)
+
+})
+
+
+
+
 
 
 
