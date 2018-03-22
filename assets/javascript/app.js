@@ -61,14 +61,10 @@ $("table").on("click", "tr", function(){
         type: 'GET',
         url: "https://api.spotify.com/v1/albums/"+album_id+"/tracks",
         headers: { 'Authorization': 'Bearer ' + current_token },
-        data: {
-            q: artist_and_album,
-            type: 'album',
-        },
         dataType: 'json',
         limit: 1,
-    }).then(function(search){
-        console.log(search)
+    }).then(function(album_tracks){
+        console.log(album_tracks)
     }); 
 })
 
@@ -81,4 +77,3 @@ $("table").on("click", "tr", function(){
 
 //
  })
-
