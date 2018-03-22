@@ -4,24 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bloody Unicorns</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Bloody Unicorns</title>
 </head>
 <body>
     
+
 <div class="container">
     <form>
         <div class="form-group">
-            <label for="search_artist">Search Artist</label>
-            <input type="text" class="form-control" id="search-artist" placeholder="Search Artist">
+          <label for="test">test</label>
+          <input type="text" class="form-control" id="search-track">
         </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+      </form>
 </div>
+
+<div id="display-track"></div>
+
+
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
 <script src="assets/javascript/app.js"></script>
 </body>
 </html>
