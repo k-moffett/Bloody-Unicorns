@@ -1,10 +1,10 @@
 $( document ).ready(function () {
 
-    var corsProxy = "https://cors-anywhere.herokuapp.com/"
-    var apiUrl = "https://accounts.spotify.com/api/token";
-    var url = corsProxy + apiUrl;
+    let corsProxy = "https://cors-anywhere.herokuapp.com/"
+    let apiUrl = "https://accounts.spotify.com/api/token";
+    let url = corsProxy + apiUrl;
     let client_secret = window.btoa("8656bed3d70344f2a82c8a2af92c98ba:17d848d816c242508e6b36ab7be1125d")
-    let current_token 
+    let current_token
     let user_input
     
     $.ajax({
@@ -13,7 +13,7 @@ $( document ).ready(function () {
         headers: { 'Authorization': 'Basic ' + client_secret },
         data: { grant_type: 'client_credentials' },
         dataType: 'json'
-        }).then(function(request_auth) { 
+        }).then(function(request_auth) {
         console.log('success', request_auth)
         current_token = request_auth.access_token
     });
@@ -21,12 +21,12 @@ $( document ).ready(function () {
     $("#test-display").text()
     }
     
-
+    
     ///Call to search
     $("#submit").on("click", function(){
         event.preventDefault()
-        user_input = $("#search-track").val().trim()
-        final_input = user_input.split(" ").join("%20")
+        user_input = $("#search-form").val().trim()
+        final_input = user_input
         console.log(final_input)
     $.ajax({
         type: 'GET',
@@ -34,41 +34,35 @@ $( document ).ready(function () {
         headers: { 'Authorization': 'Bearer ' + current_token },
         data: {
             q: final_input,
-            type: 'Artist'
+            type: 'album',
         },
-        dataType: 'json'
+        dataType: 'json',
+        limit: 1,
     }).then(function(search){
-    console.log(search)
-    });
+        
+        console.log(search)
+        console.log(search.albums)
+        
+
+for (i=0; i<5; i++) {
+
+        let results = search.albums;
+        let p = $('<p>').text("Album: " + results.items["0"].name);
+        let h = $('<h3>').text(final_input);
+        let showImage = $('<img>');
+        let art_url = search.albums.items[i].images[2].url
+        let art = ""
+        let artist = results.items[i].artists["0"].name
+        let album_name = results.items[i].name
+        let new_row = `<tr> <td><img src="`+art_url+`"></td> <td>`+artist+`</td> <td>`+album_name+`</td> </tr>`
+        $("#display-info").append(new_row)
+
+    }
+    
+    }); 
 
     })
 
+ 
+ })
 
-
-
-$("#test-submit").on("click", function(){
-    event.preventDefault()
-    
-    let art = "Art"
-    let artist = "Artist"
-    let album_name = "Album Name"
-
-    let new_row = `<tr> <td>`+art+`</td> <td>`+artist+`</td> <td>`+album_name+`</td> </tr>`
-    $("#display-info").append(new_row)
-
-})
-
-
-
-
-
-
-
-
-
-
-})
-
-// generate table using jquery that displays the searched tracks
-// create the chat box
-//
