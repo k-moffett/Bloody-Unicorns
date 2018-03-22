@@ -14,7 +14,7 @@ $( document ).ready(function () {
         data: { grant_type: 'client_credentials' },
         dataType: 'json'
         }).then(function(request_auth) {
-        console.log('success', request_auth)
+        //console.log('success', request_auth)
         current_token = request_auth.access_token
     });
     function success(request_auth){
@@ -27,7 +27,7 @@ $( document ).ready(function () {
         $(".table_rows").remove()
         user_input = $("#search-form").val().trim()
         final_input = user_input
-        console.log(final_input)
+        //console.log(final_input)
     $.ajax({
         type: 'GET',
         url: 'https://api.spotify.com/v1/search',
@@ -45,7 +45,8 @@ for (i=0; i<5; i++) {
         let art_url = search.albums.items[i].images[2].url
         let artist = search.albums.items[i].artists["0"].name
         let album_name = search.albums.items[i].name
-        let new_row = `<tr class="table_rows"> <td id="album-art"><img src="`+art_url+`"></td> <td>`+artist+`</td> <td>`+album_name+`</td> </tr>`
+        let album_id = search.albums.items[i].id
+        let new_row = `<tr class="table_rows" id="`+album_id+`"> <td><img src="`+art_url+`"></td> <td>`+artist+`</td> <td>`+album_name+`</td> <p hidden>`+album_id+`</p> </tr>`
         $("#display-info").append(new_row)
         }
     }); 
@@ -53,10 +54,22 @@ for (i=0; i<5; i++) {
 })
 
 $("table").on("click", "tr", function(){
-    console.log($(this).html())
-    let artist_and_album = $(this).text()
-    console.log(artist_and_album)
+    let album_id = $(this).attr("id")
+    console.log(album_id)
 
+    $.ajax({
+        type: 'GET',
+        url: "https://api.spotify.com/v1/albums/"+album_id+"/tracks",
+        headers: { 'Authorization': 'Bearer ' + current_token },
+        data: {
+            q: artist_and_album,
+            type: 'album',
+        },
+        dataType: 'json',
+        limit: 1,
+    }).then(function(search){
+        console.log(search)
+    }); 
 })
 
 
