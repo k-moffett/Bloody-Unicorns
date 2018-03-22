@@ -56,7 +56,6 @@ for (i=0; i<5; i++) {
 $("table").on("click", "tr", function(){
     let album_id = $(this).attr("id")
     console.log(album_id)
-
     $.ajax({
         type: 'GET',
         url: "https://api.spotify.com/v1/albums/"+album_id+"/tracks",
