@@ -70,13 +70,13 @@ $("#display-info").on("click", "tr", function(){
 $("#display-songs").on("click", "tr", function(){
     let track_title = $(this).text().trim()
     let artist_name = $(this).attr("id")
-let you_tube_api = `https://www.googleapis.com/youtube/v3/search?key=AIzaSyDCnOTuLBZZpETMWOihrNC53xpHYOhoA2s`
-let apiUrl2 = corsProxy + you_tube_api
+    let you_tube_api = `https://www.googleapis.com/youtube/v3/search?key=AIzaSyDCnOTuLBZZpETMWOihrNC53xpHYOhoA2s`
+    let apiUrl2 = corsProxy + you_tube_api
     $.ajax({
         type: `GET`,
         url: apiUrl2,
         data: {
-            q: track_title+" "+artist_name+" "+"live",
+            q: track_title+" "+artist_name,
             part: "snippet",
         }
     }).then(function(response){
