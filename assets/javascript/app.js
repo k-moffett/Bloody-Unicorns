@@ -46,16 +46,18 @@ for (i=0; i<5; i++) {
         let artist = search.albums.items[i].artists["0"].name
         let album_name = search.albums.items[i].name
         let album_id = search.albums.items[i].id
-        let new_row = `<tr class="table_rows" id="`+album_id+`"> <td><img src="`+art_url+`"></td> <td>`+artist+`</td> <td>`+album_name+`</td> <p hidden>`+album_id+`</p> </tr>`
+        let new_row = `<tr class="table_rows" id="`+album_id+","+artist+`"> <td><img src="`+art_url+`"></td> <td>`+artist+`</td> <td>`+album_name+`</td> </tr>`
         $("#display-info").append(new_row)
         }
     }); 
-
+    $("#search-form").val("")
 })
 
-$("table").on("click", "tr", function(){
-    let album_id = $(this).attr("id")
-    console.log(album_id)
+$("#display-info").on("click", "tr", function(){
+    $(".table_rows2").remove()
+    let track_info = $(this).attr("id").split(",")
+    let album_id = track_info[0]
+    let artist_name = track_info[1]
     $.ajax({
         type: 'GET',
         url: "https://api.spotify.com/v1/albums/"+album_id+"/tracks",
@@ -63,13 +65,19 @@ $("table").on("click", "tr", function(){
         dataType: 'json',
         limit: 1,
     }).then(function(album_tracks){
-        console.log(album_tracks)
+        for (i=0; i<album_tracks.items.length; i++) {
+        let new_row = `<tr class="table_rows2" id="`+artist_name+`"> <td>`+album_tracks.items[i].name+`</td> </tr>`
+        $("#display-songs").append(new_row)
+        }
     }); 
 })
 
+$("#display-songs").on("click", "tr", function(){
+    console.log($(this).text().trim())
+    console.log($(this).attr("id"))
 
 
-
+})
 
 
 
