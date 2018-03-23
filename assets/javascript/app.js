@@ -81,7 +81,7 @@ $("#display-songs").on("click", "tr", function(){
         }
     }).then(function(response){
         video_id = response.items["0"].id.videoId
-        $("#player").attr(`src`, `http://www.youtube.com/embed/`+video_id+`?enablejsapi=1&origin=https://moffkr91.github.io/Bloody-Unicorns/`)
+        $("#player").attr(`src`, `https://www.youtube.com/embed/`+video_id+`?enablejsapi=1&origin=https://moffkr91.github.io/Bloody-Unicorns/`)
     });
 })
 
