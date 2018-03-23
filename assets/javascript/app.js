@@ -14,20 +14,20 @@ $( document ).ready(function () {
         data: { grant_type: 'client_credentials' },
         dataType: 'json'
         }).then(function(request_auth) {
-        console.log('success', request_auth)
+        //console.log('success', request_auth)
         current_token = request_auth.access_token
     });
     function success(request_auth){
     $("#test-display").text()
     }
-    
-    
+
     ///Call to search
     $("#submit").on("click", function(){
         event.preventDefault()
+        $(".table_rows").remove()
         user_input = $("#search-form").val().trim()
         final_input = user_input
-        console.log(final_input)
+        //console.log(final_input)
     $.ajax({
         type: 'GET',
         url: 'https://api.spotify.com/v1/search',
@@ -39,30 +39,40 @@ $( document ).ready(function () {
         dataType: 'json',
         limit: 1,
     }).then(function(search){
-        
         console.log(search)
         console.log(search.albums)
-        
-
 for (i=0; i<5; i++) {
-
-        let results = search.albums;
-        let p = $('<p>').text("Album: " + results.items["0"].name);
-        let h = $('<h3>').text(final_input);
-        let showImage = $('<img>');
         let art_url = search.albums.items[i].images[2].url
-        let art = ""
-        let artist = results.items[i].artists["0"].name
-        let album_name = results.items[i].name
-        let new_row = `<tr> <td><img src="`+art_url+`"></td> <td>`+artist+`</td> <td>`+album_name+`</td> </tr>`
+        let artist = search.albums.items[i].artists["0"].name
+        let album_name = search.albums.items[i].name
+        let album_id = search.albums.items[i].id
+        let new_row = `<tr class="table_rows" id="`+album_id+`"> <td><img src="`+art_url+`"></td> <td>`+artist+`</td> <td>`+album_name+`</td> <p hidden>`+album_id+`</p> </tr>`
         $("#display-info").append(new_row)
-
-    }
-    
+        }
     }); 
 
-    })
+})
 
- 
+$("table").on("click", "tr", function(){
+    let album_id = $(this).attr("id")
+    console.log(album_id)
+    $.ajax({
+        type: 'GET',
+        url: "https://api.spotify.com/v1/albums/"+album_id+"/tracks",
+        headers: { 'Authorization': 'Bearer ' + current_token },
+        dataType: 'json',
+        limit: 1,
+    }).then(function(album_tracks){
+        console.log(album_tracks)
+    }); 
+})
+
+
+
+
+
+
+
+
+//
  })
-
