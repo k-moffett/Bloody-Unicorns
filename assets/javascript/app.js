@@ -14,20 +14,17 @@ $( document ).ready(function () {
         data: { grant_type: 'client_credentials' },
         dataType: 'json'
         }).then(function(request_auth) {
-        //console.log('success', request_auth)
         current_token = request_auth.access_token
     });
     function success(request_auth){
     $("#test-display").text()
     }
 
-    ///Call to search
     $("#submit").on("click", function(){
         event.preventDefault()
         $(".table_rows").remove()
         user_input = $("#search-form").val().trim()
         final_input = user_input
-        //console.log(final_input)
     $.ajax({
         type: 'GET',
         url: 'https://api.spotify.com/v1/search',
@@ -39,8 +36,6 @@ $( document ).ready(function () {
         dataType: 'json',
         limit: 1,
     }).then(function(search){
-        console.log(search)
-        console.log(search.albums)
 for (i=0; i<5; i++) {
         let art_url = search.albums.items[i].images[2].url
         let artist = search.albums.items[i].artists["0"].name
@@ -73,12 +68,22 @@ $("#display-info").on("click", "tr", function(){
 })
 
 $("#display-songs").on("click", "tr", function(){
-    console.log($(this).text().trim())
-    console.log($(this).attr("id"))
-
-
+    let track_title = $(this).text().trim()
+    let artist_name = $(this).attr("id")
+let you_tube_api = `https://www.googleapis.com/youtube/v3/search?key=AIzaSyDCnOTuLBZZpETMWOihrNC53xpHYOhoA2s`
+let apiUrl2 = corsProxy + you_tube_api
+    $.ajax({
+        type: `GET`,
+        url: apiUrl2,
+        data: {
+            q: track_title+" "+artist_name+" "+"live",
+            part: "snippet",
+        }
+    }).then(function(response){
+        video_id = response.items["0"].id.videoId
+        $("#player").attr(`src`, `http://www.youtube.com/embed/`+video_id+`?enablejsapi=1&origin=https://moffkr91.github.io/Bloody-Unicorns/`)
+    });
 })
-
 
 
 
