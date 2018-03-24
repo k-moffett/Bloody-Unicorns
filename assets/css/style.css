@@ -42,12 +42,44 @@ body {
     border-radius: 15px;
 }
 
-#display-songs {
+#main-info {
     position: relative;
     top: 2%;
+}
+
+#track-div {
+    position: relative;
+    top: 3%;
 }
 
 iframe {
 position: relative;
 top: 15px;
+}
+
+table {
+    overflow: scroll;
+    height: auto;
+    width: auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgb(33,37,41);
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }

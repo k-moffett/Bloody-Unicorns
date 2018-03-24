@@ -36,13 +36,13 @@ $( document ).ready(function () {
         dataType: 'json',
         limit: 1,
     }).then(function(search){
-for (i=0; i<5; i++) {
+for (i=0; i<10; i++) {
         let art_url = search.albums.items[i].images[2].url
         let artist = search.albums.items[i].artists["0"].name
         let album_name = search.albums.items[i].name
         let album_id = search.albums.items[i].id
         let new_row = `<tr class="table_rows" id="`+album_id+","+artist+`"> <td><img src="`+art_url+`"></td> <td>`+artist+`</td> <td>`+album_name+`</td> </tr>`
-        $("#display-info").append(new_row)
+        $("#display-info").append(new_row)    
         }
     }); 
     $("#search-form").val("")
