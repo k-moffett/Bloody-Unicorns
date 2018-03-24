@@ -1,0 +1,78 @@
+body {
+    background-image: url("../images/MainBackground.jpg");
+    font-family: 'Advent Pro', sans-serif;
+    color: rgb(10, 165, 10);
+}
+.jumbotron {
+    background: transparent;
+    margin-top: 10px;
+    text-align: center;
+  }
+  #welcome {
+      text-align: center;
+
+  }
+.btn-outline-success{
+     border-color: rgb(10, 165, 10);
+     color: rgb(10, 165, 10);
+     
+
+ }
+ .btn-outline-success:hover{
+     background-color: rgb(10, 165, 10);
+ }
+ .button {
+    background: rgb(10, 165, 10);
+    height: 80px;
+    width: 200px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .text {
+    font: bold 1.25rem/1 poppins;
+    color: #2B2D2F;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-52%);
+    left: 0;
+    right: 0;
+  }
+  
+  .progress-bar {
+    position: absolute;
+    height: 20px;
+    width: 0;
+    right: 0;
+    top: 50%;
+    left: 50%;
+    border-radius: 200px;
+    transform: translateY(-50%) translateX(-50%);
+    background: lighten(rgb(37, 51, 40), 15%);
+  }
+  
+  svg {
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    left: 50%;
+    right: 0;
+  }
+  
+  .check {
+    fill: none;
+    stroke: #FFFFFF;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+

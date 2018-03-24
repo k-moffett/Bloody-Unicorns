@@ -3,6 +3,8 @@ body {
     background-image: url("../images/background.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
+    color: #4bd2d2;
+    font-family: 'Advent Pro', sans-serif;
 }
 
 #main-container {
@@ -33,12 +35,12 @@ body {
 }
 
 #one {
-    background-color: #cc8400;
+    background: linear-gradient(#451676, black);
     border-radius: 15px;
 }
 
 #two {
-    background-color: #664200;
+    background: linear-gradient(midnightblue, black);
     border-radius: 15px;
 }
 
@@ -77,7 +79,8 @@ table {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: #888;
+    border-radius: 10px; 
 }
 
 /* Handle on hover */
@@ -90,3 +93,7 @@ table {
     border-radius: 50%;
 }
 
+
+
+
+  
