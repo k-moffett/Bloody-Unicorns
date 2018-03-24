@@ -51,3 +51,8 @@ iframe {
 position: relative;
 top: 15px;
 }
+
+#imageSize {
+    height: 50px;
+    border-radius: 50%;
+}

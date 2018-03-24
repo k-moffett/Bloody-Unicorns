@@ -1,70 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bloody Unicorns</title>
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-<div class="container" id="main-container">
+    <div class="container" id="main-container">
 
 
-<div class="container">
-    <div class="row head-row">
-            <button type="submit" id="submit" class="btn btn-primary">Submit</button>
-            <form>
-                <div class="form-group">
-                <input type="text" class="form-control" id="search-form" placeholder="Search Artist Here!">
-                </div>
-            </form>
-    </div>
-</div>
-
-
-<div class="container">
-    <div class="row" id="main-row">
-        <div class="col-md-4" id="one">
-
-            <iframe id="player" type="text/html" width="340" height="325" src="https://www.youtube.com/embed/?enablejsapi=1&origin=https://moffkr91.github.io/Bloody-Unicorns/" frameborder="0"></iframe>
-
-            <table id="display-songs" class="table">
-                <thead class="thead-dark">
-                <tr>
-                    <th>Track Title</th>
-                </tr>
-            </table>
+        <div class="container">
+            <div class="row head-row">
+                <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="search-form" placeholder="Search Artist Here!">
+                    </div>
+                </form>
+            </div>
         </div>
 
-        <div class="col-md-8" id="two">
-                <div class="container">
+
+        <div class="container">
+            <div class="row" id="main-row">
+                <div class="col-md-4" id="one">
+
+                    <iframe id="player" type="text/html" width="340" height="325" src="https://www.youtube.com/embed/?enablejsapi=1&origin=https://moffkr91.github.io/Bloody-Unicorns/"
+                        frameborder="0"></iframe>
+
+                    <table id="display-songs" class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Track Title</th>
+                            </tr>
+                    </table>
+                </div>
+
+                <div class="col-md-8" id="two">
+                    <div class="container">
                         <table id="display-info" class="table">
                             <thead class="thead-dark">
-                            <tr>
-                                <th></th>
-                                <th>Artist</th>
-                                <th>Album Title</th>
-                            </tr>
+                                <tr>
+                                    <th></th>
+                                    <th>Artist</th>
+                                    <th>Album Title</th>
+                                </tr>
                         </table>
                     </div>
 
-                <div class="container">
-                    <div id="chat">
-
+                    <div class="container">
+                        <div id="chat" style="overflow-y: scroll; height: 250px;">
+                            <div class="jumbotron">
+                                <div class="list-messages" id="listMessages">
+                                </div>
+                                <div class="new-message" id="newMessage">
+                                    <div class="row">
+                                        <!-- <button type="submit" id="post">Post</button> -->
+                                        <input type="text" name="name" placeholder="Your User Name" id="name">
+                                        <input type="text" name="text" placeholder="Message Bloody Unicorns Music Chat" id="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
         </div>
-
     </div>
-</div>
-
-
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
-<script src="assets/javascript/app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-firestore.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+    <script src="assets/javascript/app.js"></script>
+    <script src="assets/javascript/chat.js"></script>
 </body>
+
 </html>
