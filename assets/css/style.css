@@ -57,6 +57,7 @@ position: relative;
 top: 15px;
 }
 
+
 table {
     overflow: scroll;
     height: auto;
@@ -83,3 +84,9 @@ table {
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
 }
+
+#imageSize {
+    height: 50px;
+    border-radius: 50%;
+}
+
