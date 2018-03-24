@@ -66,7 +66,7 @@ var basicTimeline = anime.timeline({
 
 
   function next_page(){
-    window.open("../../index2.html").delay( 500 )
+    window.open("index2.html").delay( 500 )
   }
   
   $("#join").on("click", next_page())
