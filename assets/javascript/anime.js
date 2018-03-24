@@ -60,13 +60,18 @@ var basicTimeline = anime.timeline({
     basicTimeline.play();
   });
 
-  $("#join").on("click", function(){
-
-  })
-
-
+ 
   function next_page(){
-    window.open("index2.html").delay( 500 )
+    window.location.href="index2.html"
   }
   
-  $("#join").on("click", next_page())
+
+  $("#join").on("click", function(){
+    setTimeout(function(){
+      console.log("yahfeshugdhn")
+      window.location.href="index2.html"
+    }, 5000)
+  })
+
+  
+  
