@@ -14,7 +14,7 @@ var database = firebase.database();
 var userLoggedIn = false;
 $("#text").on("keydown", function (event) {
     if (event.key === 'Enter'){
-        event.preventDefault();
+    event.preventDefault();
     let name = $("#name").val();
     let text = $("#text").val();
     let avatarName = name;

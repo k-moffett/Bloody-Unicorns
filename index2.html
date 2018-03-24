@@ -1,44 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Advent+Pro" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style2.css">
-
     <title>Bloody Unicorns</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Advent+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-    <div class="container">
-    <div class="jumbotron">
-        <h1 class="display-4" id="welcome">Welcome! </h1>
-        <p class="lead">This is a "jukebox" style app to search your favorite artist, play live videos and join other to chat!</p>
-        <hr class="my-4">
-        <p>Click on any album to reveal the list of tracks, you can then click on a track to play it in the YouTube Video box.</p>
-        <p class="lead">
-        <div class="form-row text-center">
-            <div class="col-12">
-            </div>
-            </div>
-        </p>
-      </div>
-      </div>
-      <div class="button">
-            <div class="text">Submit</div>
-          </div>
-          <div class="progress-bar"></div>
-          <svg x="0px" y="0px"
-             viewBox="0 0 25 30" style="enable-background:new 0 0 25 30;">
-            <path class="check" class="st0" d="M2,19.2C5.9,23.6,9.4,28,9.4,28L23,2"/>
-          </svg>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
-      <script src="assets/javascript/anime.js"></script>
-</body>
 
-</html>
-  
-  
+<body>
+    <div class="container" id="main-container">
+
+
+        <div class="container">
+            <div class="row head-row">
+                <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="search-form" placeholder="Search Artist Here!">
+                    </div>
+                </form>
+                <input class="name form-control" type="text" name="name" placeholder="Your User Name" id="name" id="chat-forms">
+                <div class="input-group-prepend">
+                        <div class="input-group-text">(ง°ل͜°)ง</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row" id="main-row">
+                <div class="col-md-4" id="one">
+
+                    <iframe id="player" type="text/html" width="340" height="325" src="https://www.youtube.com/embed/?enablejsapi=1&origin=https://moffkr91.github.io/Bloody-Unicorns/"
+                        frameborder="0"></iframe>
+                    <div id="tracks-div"class="table" style="overflow-y: scroll; height: 250px">
+                        <table id="display-songs">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Track Title</th>
+                                </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col-md-8" id="two">
+                    <div class="container" style="overflow-y: scroll; height: 300px">
+                        <table id="display-info" class="table">
+                            <thead class="thead-dark text-muted">
+                                <tr>
+                                    <th></th>
+                                    <th>Artist</th>
+                                    <th>Album Title</th>
+                                </tr>
+                        </table>
+                    </div>
+
+                    <div class="container">
+                        <div id="chat" style="overflow-y: scroll; height: 275px;">
+                            <div>
+                                <div class="list-messages" id="listMessages"></div>
+                            </div>
+                        </div>
+
+                        <div class="row" id="chat-forms">
+                            <!-- <button type="submit" id="post">Post</button> -->
+                            <input class="form-control" type="text" name="text" placeholder="Message Bloody Unicorns Music Chat" id="text">
+                        </div>
+                    </div>      
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-firestore.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="assets/javascript/app.js"></script>
+        <script src="assets/javascript/chat.js"></script>
+    </body>
+    
+    </html>

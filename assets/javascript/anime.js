@@ -59,3 +59,14 @@ var basicTimeline = anime.timeline({
   $(".text").click(function() {
     basicTimeline.play();
   });
+
+  $("#join").on("click", function(){
+
+  })
+
+
+  function next_page(){
+    window.open("../../index2.html")
+  }
+  
+  $("#join").on("click", next_page())

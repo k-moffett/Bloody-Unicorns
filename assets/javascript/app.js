@@ -10,7 +10,7 @@ $( document ).ready(function () {
 
 get_video_id()
 function get_video_id(){
-    database.ref().on("child_added", function(response) {
+    database.ref().on("child_changed", function(response) {
         console.log(response.val())
         video_id = response.val()
         $("#player").attr(`src`, `https://www.youtube.com/embed/`+video_id+`?enablejsapi=1&origin=https://moffkr91.github.io/Bloody-Unicorns/`)
