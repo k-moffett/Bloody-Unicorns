@@ -1,11 +1,20 @@
 $( document ).ready(function () {
 
+
     let corsProxy = "https://cors-anywhere.herokuapp.com/"
     let apiUrl = "https://accounts.spotify.com/api/token";
     let url = corsProxy + apiUrl;
     let client_secret = window.btoa("8656bed3d70344f2a82c8a2af92c98ba:17d848d816c242508e6b36ab7be1125d")
     let current_token
     let user_input
+
+get_video_id()
+function get_video_id(){
+    database.ref().on("child_added", function(response) {
+        console.log(response.val())
+        video_id = response.val()
+        $("#player").attr(`src`, `https://www.youtube.com/embed/`+video_id+`?enablejsapi=1&origin=https://moffkr91.github.io/Bloody-Unicorns/`)
+     })    }
     
     $.ajax({
         type: 'POST',
@@ -80,8 +89,19 @@ $("#display-songs").on("click", "tr", function(){
             part: "snippet",
         }
     }).then(function(response){
-        video_id = response.items["0"].id.videoId
-        $("#player").attr(`src`, `https://www.youtube.com/embed/`+video_id+`?enablejsapi=1&origin=https://moffkr91.github.io/Bloody-Unicorns/`)
+        console.log(response)
+        var database = firebase.database();
+        let response_id = response.items["0"].id.videoId
+          database.ref().update({
+            video_id: response_id,
+          })
+        
+        database.ref().on("child_changed", function(response) {
+            console.log(response.val())
+            video_id = response.val()
+            $("#player").attr(`src`, `https://www.youtube.com/embed/`+video_id+`?enablejsapi=1&origin=https://moffkr91.github.io/Bloody-Unicorns/`)
+         })
+
     });
 })
 
@@ -89,3 +109,5 @@ $("#display-songs").on("click", "tr", function(){
 
 //
  })
+
+

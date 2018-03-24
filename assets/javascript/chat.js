@@ -15,8 +15,8 @@ var userLoggedIn = false;
 $("#text").on("keydown", function (event) {
     if (event.key === 'Enter'){
         event.preventDefault();
-    let name = $("#name").val().trim();
-    let text = $("#text").val().trim();
+    let name = $("#name").val();
+    let text = $("#text").val();
     let avatarName = name;
     database.ref().push({
         name: name,
@@ -24,6 +24,7 @@ $("#text").on("keydown", function (event) {
         avatarName: avatarName,
         // dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
+    $("#chat").animate({scrollTop: $("#chat")[0].scrollHeight });
     $("#name").hide();
     $("#text").css({
         "background-color": "white",
@@ -43,3 +44,5 @@ database.ref().on("child_added", function (snapshot) {
 }, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
+
+
